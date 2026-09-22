@@ -1,0 +1,112 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-family-base);
+  font-size: var(--text-field-label-size);
+  font-weight: var(--text-field-label-weight);
+  color: var(--color-text-primary);
+}
+
+.wrapper[data-disabled="true"] .label {
+  color: var(--color-disabled-text);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 48px;
+  padding: var(--spacing-13) var(--spacing-14);
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-surface);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.field:hover:not(:disabled) {
+  border-color: var(--color-border-default);
+}
+
+.field:focus-visible,
+.field[data-open="true"] {
+  outline: none;
+  border: 2px solid var(--color-focus);
+  padding: 12px 13px;
+}
+
+.field[data-filled="true"] {
+  color: var(--color-text-primary);
+}
+
+.field[data-error="true"] {
+  border-color: var(--color-status-danger);
+}
+
+.field:disabled {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border-default);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: transform 0.15s ease;
+}
+
+.field[data-open="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.errorText {
+  font-family: var(--font-family-base);
+  font-size: var(--text-caption-size);
+  color: var(--color-status-danger);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+  padding: var(--spacing-8);
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-surface);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  list-style: none;
+  margin: 0;
+  z-index: 10;
+}
+
+.option {
+  padding: var(--spacing-10) var(--spacing-12);
+  border-radius: var(--radius-8);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--color-bg-brand-subtle);
+}
+
+.optionSelected {
+  background-color: var(--color-bg-brand-subtle);
+  font-weight: 600;
+}
