@@ -1,44 +1,65 @@
 /*
  * LGTech Design System — Design Tokens
  * Source: Figma "_AI_ Design System" (file ZnkEfBrYgHFvukNczSKvkA)
- * Consolidated from the Button and Select components so both draw from
- * one shared scale instead of duplicating ad hoc values.
+ *   - Foundations page (node 6:3): primitives, semantic colors, type scale,
+ *     spacing/radius/elevation scale — the source of truth below.
+ *   - Button (node 13:2) and Select (node 44:2): component-level tokens,
+ *     reconciled against Foundations where they overlap.
  */
 
 :root {
-  /* ---- Color: text ---- */
-  --color-text-primary: #0f172a;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-  --color-text-brand: #11638c;
+  /* ============ Color primitives ============ */
+  --color-brand-500: #1999d5;
+  --color-brand-700: #11638c;
+  --color-brand-900: #1f386e;
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #eef2f7;
+  --color-neutral-900: #0f172a;
 
-  /* ---- Color: surfaces & borders ---- */
-  --color-bg-surface: #ffffff;
+  /* ============ Semantic colors (Foundations) ============ */
+  --color-bg-page: var(--color-neutral-0);
   --color-bg-subtle: #f7f9fc;
+  --color-bg-brand: var(--color-brand-700);
+  --color-bg-brand-strong: var(--color-brand-900);
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-link: var(--color-brand-700);
+
+  /* ============ Semantic colors (used by components, not yet on the
+     Foundations page — kept here so every component draws from one
+     place; flag to design for promotion to Foundations) ============ */
+  --color-text-muted: #64748b;
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-brand: var(--color-brand-700);
+  --color-bg-surface: var(--color-bg-page);
   --color-bg-brand-subtle: #eef8fd;
   --color-border-default: #dce3ec;
-
-  /* ---- Color: focus & status ---- */
-  /* Distinct from --color-text-brand on purpose: a focus ring must stay
-     visually identifiable even on brand-colored controls (WCAG 2.4.7). */
-  --color-focus: #1999d5;
   --color-status-danger: #c63838;
 
-  /* ---- Color: action (Button) ---- */
-  --color-action-primary-default: #11638c;
+  /* Focus ring: an alias for brand/500, not a separate hue — Figma's
+     Select uses the exact brand/500 value (#1999d5) for its focus
+     border, so this token stays in lockstep with the brand scale. */
+  --color-focus: var(--color-brand-500);
+
+  /* ============ Action colors (Button) ============ */
+  --color-action-primary-default: var(--color-brand-700);
   --color-action-primary-hover: #164f70;
-  --color-action-primary-pressed: #1f386e;
-  --color-action-secondary-default: #ffffff;
-  --color-action-secondary-border: #11638c;
-  --color-action-secondary-hover: #eef8fd;
+  --color-action-primary-pressed: var(--color-brand-900);
+  --color-action-secondary-default: var(--color-bg-page);
+  --color-action-secondary-border: var(--color-brand-700);
+  --color-action-secondary-hover: var(--color-bg-brand-subtle);
   --color-action-secondary-pressed: #d8f0fa;
 
-  /* ---- Color: disabled (shared by every interactive component) ---- */
-  --color-disabled-bg: #dce3ec;
+  /* Disabled (shared by every interactive component) */
+  --color-disabled-bg: var(--color-border-default);
   --color-disabled-text: #94a3b8;
-  --color-disabled-border: #dce3ec;
+  --color-disabled-border: var(--color-border-default);
 
-  /* ---- Spacing scale (4px base, covers every value seen in Figma) ---- */
+  /* ============ Spacing ============
+     Foundations only documents a coarse 8/16/32/64 scale. Button and
+     Select need finer steps (their Figma auto-layout specs use 4, 6,
+     10, 12, 13, 14, 20, 24px) that aren't formalized upstream yet —
+     kept here on a consistent 4px grid so every component shares one
+     scale; flag the gap to design so Foundations documents it too. */
   --spacing-4: 4px;
   --spacing-6: 6px;
   --spacing-8: 8px;
@@ -49,15 +70,60 @@
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-64: 64px;
 
-  /* ---- Radius scale ---- */
+  /* ============ Radius ============
+     Foundations scale is 0/8/16/24/full. Select's field (10px) and
+     menu (12px) fall outside it — flagged to design; not silently
+     rounded to the nearest official step since that would drift from
+     the current Figma component spec. */
+  --radius-0: 0px;
   --radius-8: 8px;
   --radius-10: 10px;
   --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-full: 999px;
 
-  /* ---- Typography ---- */
+  /* ============ Elevation ============ */
+  --elevation-100: 0px 1px 3px 0px rgba(15, 23, 42, 0.08);
+  --elevation-200: 0px 4px 12px -2px rgba(15, 23, 42, 0.1);
+  --elevation-300: 0px 12px 32px -8px rgba(15, 23, 42, 0.16);
+
+  /* ============ Typography ============ */
+  --font-family-display: "Space Grotesk", system-ui, sans-serif;
   --font-family-base: "Open Sans", system-ui, sans-serif;
 
+  --text-display-xl-size: 64px;
+  --text-display-xl-weight: 700;
+  --text-display-xl-line-height: 72px;
+  --text-display-xl-tracking: -2px;
+
+  --text-heading-h1-size: 48px;
+  --text-heading-h1-weight: 700;
+  --text-heading-h1-line-height: 56px;
+  --text-heading-h1-tracking: -1.5px;
+
+  --text-heading-h2-size: 40px;
+  --text-heading-h2-weight: 700;
+  --text-heading-h2-line-height: 48px;
+  --text-heading-h2-tracking: -1px;
+
+  --text-heading-h3-size: 32px;
+  --text-heading-h3-weight: 500;
+  --text-heading-h3-line-height: 40px;
+  --text-heading-h3-tracking: -0.5px;
+
+  --text-body-large-size: 18px;
+  --text-body-large-weight: 400;
+  --text-body-large-line-height: 28px;
+
+  --text-body-medium-size: 16px;
+  --text-body-medium-weight: 400;
+  --text-body-medium-line-height: 24px;
+
+  /* Component-level text styles (Button/Select), not on Foundations yet */
   --text-label-medium-size: 14px;
   --text-label-medium-weight: 600;
   --text-label-medium-line-height: 20px;

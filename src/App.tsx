@@ -1,5 +1,6 @@
 import { Button } from "./components/Button/Button";
 import { Select } from "./components/Select/Select";
+import { Foundations } from "./foundations/Foundations";
 import "./App.css";
 
 const companySizeOptions = [
@@ -14,6 +15,10 @@ function App() {
     <main className="gallery">
       <h1>LGTech Design System</h1>
       <p>Aperçu vivant des composants — généré à partir du fichier Figma "_AI_ Design System".</p>
+
+      <section className="section">
+        <Foundations />
+      </section>
 
       <section className="section">
         <h2>Button</h2>

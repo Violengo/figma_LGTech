@@ -5,8 +5,15 @@
 }
 
 .gallery h1 {
-  font-size: 28px;
+  font-family: var(--font-family-display);
+  font-size: 32px;
+  font-weight: 700;
   margin-bottom: var(--spacing-4);
+}
+
+.gallery .section > h2 {
+  font-family: var(--font-family-display);
+  font-weight: 700;
 }
 
 .gallery > p {

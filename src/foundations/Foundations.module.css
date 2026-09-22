@@ -1,0 +1,203 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.groupLabel {
+  font-family: var(--font-family-base);
+  font-size: var(--text-field-label-size);
+  font-weight: var(--text-field-label-weight);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Colors */
+.swatchRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 160px;
+}
+
+.swatchColor {
+  height: 84px;
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-border-default);
+}
+
+.swatchLabel {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Typography */
+.specimen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  padding: var(--spacing-16) 0;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.specimen:last-child {
+  border-bottom: none;
+}
+
+.specimenLabel {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.displayXl {
+  font-family: var(--font-family-display);
+  font-size: var(--text-display-xl-size);
+  font-weight: var(--text-display-xl-weight);
+  line-height: var(--text-display-xl-line-height);
+  letter-spacing: var(--text-display-xl-tracking);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.headingH1 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-heading-h1-size);
+  font-weight: var(--text-heading-h1-weight);
+  line-height: var(--text-heading-h1-line-height);
+  letter-spacing: var(--text-heading-h1-tracking);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.headingH2 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-heading-h2-size);
+  font-weight: var(--text-heading-h2-weight);
+  line-height: var(--text-heading-h2-line-height);
+  letter-spacing: var(--text-heading-h2-tracking);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.headingH3 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-heading-h3-size);
+  font-weight: var(--text-heading-h3-weight);
+  line-height: var(--text-heading-h3-line-height);
+  letter-spacing: var(--text-heading-h3-tracking);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.bodyLarge {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-large-size);
+  font-weight: var(--text-body-large-weight);
+  line-height: var(--text-body-large-line-height);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.bodyMedium {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-medium-size);
+  font-weight: var(--text-body-medium-weight);
+  line-height: var(--text-body-medium-line-height);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Spacing */
+.spacingRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.spacingItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.spacingBar {
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--color-brand-500);
+}
+
+.spacingLabel {
+  font-family: var(--font-family-base);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Radius */
+.radiusRow {
+  display: flex;
+  gap: var(--spacing-24);
+  flex-wrap: wrap;
+}
+
+.radiusItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.radiusSwatch {
+  width: 72px;
+  height: 72px;
+  background-color: var(--color-bg-brand-subtle);
+  border: 2px solid var(--color-brand-500);
+}
+
+.radiusLabel {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Elevation */
+.elevationRow {
+  display: flex;
+  gap: var(--spacing-32);
+  flex-wrap: wrap;
+  padding: var(--spacing-24);
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-16);
+}
+
+.elevationCard {
+  width: 220px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-page);
+  border-radius: var(--radius-12);
+  font-family: var(--font-family-base);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-bg-brand-strong);
+}
