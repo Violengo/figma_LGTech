@@ -1,0 +1,73 @@
+/*
+ * LGTech Design System — Design Tokens
+ * Source: Figma "_AI_ Design System" (file ZnkEfBrYgHFvukNczSKvkA)
+ * Consolidated from the Button and Select components so both draw from
+ * one shared scale instead of duplicating ad hoc values.
+ */
+
+:root {
+  /* ---- Color: text ---- */
+  --color-text-primary: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+  --color-text-brand: #11638c;
+
+  /* ---- Color: surfaces & borders ---- */
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #f7f9fc;
+  --color-bg-brand-subtle: #eef8fd;
+  --color-border-default: #dce3ec;
+
+  /* ---- Color: focus & status ---- */
+  /* Distinct from --color-text-brand on purpose: a focus ring must stay
+     visually identifiable even on brand-colored controls (WCAG 2.4.7). */
+  --color-focus: #1999d5;
+  --color-status-danger: #c63838;
+
+  /* ---- Color: action (Button) ---- */
+  --color-action-primary-default: #11638c;
+  --color-action-primary-hover: #164f70;
+  --color-action-primary-pressed: #1f386e;
+  --color-action-secondary-default: #ffffff;
+  --color-action-secondary-border: #11638c;
+  --color-action-secondary-hover: #eef8fd;
+  --color-action-secondary-pressed: #d8f0fa;
+
+  /* ---- Color: disabled (shared by every interactive component) ---- */
+  --color-disabled-bg: #dce3ec;
+  --color-disabled-text: #94a3b8;
+  --color-disabled-border: #dce3ec;
+
+  /* ---- Spacing scale (4px base, covers every value seen in Figma) ---- */
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-13: 13px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+
+  /* ---- Radius scale ---- */
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+
+  /* ---- Typography ---- */
+  --font-family-base: "Open Sans", system-ui, sans-serif;
+
+  --text-label-medium-size: 14px;
+  --text-label-medium-weight: 600;
+  --text-label-medium-line-height: 20px;
+
+  --text-field-label-size: 13px;
+  --text-field-label-weight: 600;
+
+  --text-body-size: 14px;
+  --text-body-weight: 400;
+
+  --text-caption-size: 12px;
+  --text-caption-weight: 400;
+}

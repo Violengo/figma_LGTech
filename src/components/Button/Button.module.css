@@ -1,0 +1,78 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: 0 var(--spacing-24);
+  border-radius: var(--radius-8);
+  border: 1.5px solid transparent;
+  font-family: var(--font-family-base);
+  font-size: var(--text-label-medium-size);
+  font-weight: var(--text-label-medium-weight);
+  line-height: var(--text-label-medium-line-height);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.medium {
+  height: 48px;
+  padding-top: var(--spacing-12);
+  padding-bottom: var(--spacing-12);
+}
+
+.large {
+  height: 56px;
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+}
+
+/* Primary */
+.primary {
+  background-color: var(--color-action-primary-default);
+  color: var(--color-text-inverse);
+}
+.primary:hover:not(:disabled) {
+  background-color: var(--color-action-primary-hover);
+}
+.primary:active:not(:disabled) {
+  background-color: var(--color-action-primary-pressed);
+}
+
+/* Secondary */
+.secondary {
+  background-color: var(--color-action-secondary-default);
+  border-color: var(--color-action-secondary-border);
+  color: var(--color-text-brand);
+}
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-action-secondary-hover);
+}
+.secondary:active:not(:disabled) {
+  background-color: var(--color-action-secondary-pressed);
+}
+
+/* Tertiary */
+.tertiary {
+  background-color: transparent;
+  color: var(--color-text-brand);
+}
+.tertiary:hover:not(:disabled) {
+  background-color: var(--color-action-secondary-hover);
+}
+.tertiary:active:not(:disabled) {
+  background-color: var(--color-action-secondary-pressed);
+}
+
+/* Disabled (shared across variants) */
+.button:disabled {
+  background-color: var(--color-disabled-bg);
+  border-color: transparent;
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
