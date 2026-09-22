@@ -32,6 +32,15 @@
   padding-bottom: var(--spacing-16);
 }
 
+.iconOnly {
+  padding: 0;
+  width: 48px;
+}
+
+.iconOnly.large {
+  width: 56px;
+}
+
 /* Primary */
 .primary {
   background-color: var(--color-action-primary-default);

@@ -2,55 +2,56 @@
 
 Implémentation code du design system Figma **"_AI_ Design System"** (fichier `ZnkEfBrYgHFvukNczSKvkA`).
 
-Stack : React + TypeScript + Vite, styles en CSS Modules sur une couche de design tokens
-(`src/tokens/tokens.css`, des custom properties CSS). Pas de Tailwind — les classes générées par
-le MCP Figma sont converties dans ce système à chaque composant.
+React + TypeScript + Vite. Styles en CSS Modules sur une couche de design tokens
+(`src/tokens/tokens.css`, des custom properties CSS) — pas de Tailwind. Icônes
+[Material Symbols](https://fonts.google.com/icons) (cohérent avec le Material 3 Design Kit
+référencé dans Figma), swappables dans les composants via un registre central.
+
+📖 **[Documentation complète →](./docs/README.md)** (tokens, composants, icônes, écarts avec Figma)
 
 ## Démarrer
 
 ```bash
 npm install
-npm run dev      # serveur de dev + galerie de composants sur http://localhost:5173
-npm run build    # typecheck (tsc) + build de prod
-npm run lint     # oxlint
+npm run dev      # galerie de composants sur http://localhost:5173
+npm run build    # typecheck + build de prod
+npm run lint      # oxlint
+npm run test      # vitest
 ```
 
-`src/App.tsx` sert de galerie vivante : Foundations (couleurs, typographie, spacing, radius,
-elevation) puis chaque composant avec tous ses états.
+`src/App.tsx` est une galerie vivante — Foundations, Button, Select, Icons — avec une nav latérale.
+Comme elle importe les composants réels, elle ne peut pas désynchroniser du code.
 
 ## Structure
 
 ```
 src/
-  tokens/tokens.css          Design tokens (custom properties), source unique de vérité
-  foundations/Foundations.tsx  Rendu des fondations (couleurs, type scale, spacing, radius, elevation)
+  tokens/tokens.css            Design tokens (custom properties), source unique de vérité
+  foundations/                 Rendu des fondations (couleurs, type scale, spacing, radius, elevation)
+  icons/
+    registry.ts                Registre d'icônes Material Symbols (ajouter = une ligne)
+    Icon.tsx                   Composant <Icon name="..." />
   components/
-    Button/                 Primary · Secondary · Tertiary — Medium · Large
-    Select/                 Combobox/listbox accessible — filled · focus · open · error · disabled
+    Button/                    Primary · Secondary · Tertiary — Medium · Large — icônes swappables
+    Select/                    Combobox/listbox accessible — filled · focus · open · error · disabled
+    index.ts                   Exports publics
+docs/                          Documentation détaillée (voir lien ci-dessus)
 ```
+
+Chaque composant a ses tests (`*.test.tsx`, Vitest + Testing Library) : interactions clavier/souris,
+états, accessibilité (nom accessible, `aria-*`).
 
 ## Pages Figma couvertes
 
 - ✅ Foundations (node `6:3`)
 - ✅ Button (node `13:2`)
 - ✅ Select (node `44:2`)
-- ⏳ Getting Started, Screens, Input, Controls, Feedback, Content — pas encore accessibles
-  (l'outil d'énumération des pages du MCP Figma reste bloqué sur "Cover"/"Button" ; il faut
-  fournir le lien `node-id` de chaque page pour les récupérer).
+- ⏳ Getting Started, Screens, Input, Controls, Feedback, Content — pas encore accessibles depuis
+  cette session (l'énumération automatique des pages du MCP Figma reste bloquée sur "Cover" /
+  "Button" ; fournir le lien `node-id` de chaque page permet de les récupérer directement).
 
-## Écarts entre les Foundations et les composants existants
+## Écarts Foundations ↔ composants
 
-Relevés en comparant la page Foundations aux specs de Button/Select. À trancher côté design,
-pas corrigés silencieusement ici pour rester fidèle aux maquettes actuelles :
-
-- **Radius** : Foundations documente `0 / 8 / 16 / 24 / full`. Le champ Select utilise `10px`
-  et son menu `12px`, deux valeurs hors échelle.
-- **Spacing** : Foundations documente `8 / 16 / 32 / 64`. Button et Select ont besoin de pas
-  plus fins (`4, 6, 10, 12, 13, 14, 20, 24`) non documentés — la grille 4px de `tokens.css` les
-  couvre en attendant.
-- **`--color-focus`** : c'est un alias de `brand/500` (`#1999d5`), pas une teinte de focus
-  dédiée — à clarifier si c'est le comportement voulu pour tous les futurs composants interactifs.
-- **États "disabled"** : Button a des tokens dédiés (`color-action-disabled-bg/-text`) ; Select
-  réutilise les tokens sémantiques génériques (`color-bg-subtle`, `color-text-muted`). Les deux
-  traitements sont visuellement cohérents avec les maquettes mais reposent sur des tokens
-  différents — à harmoniser si l'intention est un seul token "disabled" partagé.
+Volontairement non corrigés en silence — détail et options dans [docs/gaps.md](./docs/gaps.md) :
+radius du Select hors échelle officielle, granularité du spacing, `--color-focus` alias de
+`brand/500`, deux jeux de tokens "disabled".

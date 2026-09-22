@@ -1,7 +1,60 @@
+.shell {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100svh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  width: 220px;
+  height: 100svh;
+  padding: var(--spacing-24) var(--spacing-16);
+  background-color: var(--color-bg-page);
+  border-right: 1px solid var(--color-border-default);
+  box-sizing: border-box;
+}
+
+.sidebarBrand {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-24);
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.navList a {
+  display: block;
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--radius-8);
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.navList a:hover {
+  background-color: var(--color-bg-brand-subtle);
+  color: var(--color-text-brand);
+}
+
 .gallery {
+  flex: 1 1 auto;
+  min-width: 0;
   max-width: 960px;
   margin: 0 auto;
-  padding: var(--spacing-24) var(--spacing-16) 80px;
+  padding: var(--spacing-24) var(--spacing-16) 120px;
 }
 
 .gallery h1 {
@@ -11,11 +64,6 @@
   margin-bottom: var(--spacing-4);
 }
 
-.gallery .section > h2 {
-  font-family: var(--font-family-display);
-  font-weight: 700;
-}
-
 .gallery > p {
   color: var(--color-text-muted);
   margin-top: 0;
@@ -23,10 +71,13 @@
 }
 
 .section {
-  margin-bottom: 48px;
+  margin-bottom: 64px;
+  scroll-margin-top: var(--spacing-24);
 }
 
-.section h2 {
+.section > h2 {
+  font-family: var(--font-family-display);
+  font-weight: 700;
   font-size: 20px;
   margin-bottom: var(--spacing-4);
 }
@@ -35,6 +86,21 @@
   color: var(--color-text-muted);
   margin-top: 0;
   margin-bottom: var(--spacing-16);
+}
+
+.section code {
+  background-color: var(--color-bg-subtle);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 13px;
+}
+
+.subLabel {
+  font-family: var(--font-family-base);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: var(--spacing-24) 0 var(--spacing-12);
 }
 
 .row {
@@ -50,4 +116,45 @@
 
 .selectSlot {
   width: 260px;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--spacing-16);
+}
+
+.iconTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-12);
+  color: var(--color-text-brand);
+}
+
+.iconTile span {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+  .navList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
